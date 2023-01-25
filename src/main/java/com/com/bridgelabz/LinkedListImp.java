@@ -22,9 +22,7 @@ public class LinkedListImp {
 //    }
     /*Adding data by Append method */
     public void appendNode(Integer data) {
-
         Node newNode = new Node(data);
-
         if (head == null) {
             head = new Node(data);
             return;
@@ -38,6 +36,18 @@ public class LinkedListImp {
         return;
     }
 
+    /*  Inserting node between  */
+    public void insertNode(Node prevNode, Integer data) {
+
+        if (prevNode == null) {
+            System.out.print("The previous node cannot be null");
+            return;
+        }
+        Node newNode = new Node(data);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
     public void printList() {
         while (head != null) {
             System.out.print(head.data + "->");
@@ -47,12 +57,9 @@ public class LinkedListImp {
 
     public static void main(String[] args) {
         LinkedListImp linkedListImp = new LinkedListImp();
-//        linkedListImp.addingNode(70);
-//        linkedListImp.addingNode(30);
-//        linkedListImp.addingNode(56);
         linkedListImp.appendNode(56);
-        linkedListImp.appendNode(30);
         linkedListImp.appendNode(70);
+        linkedListImp.insertNode(linkedListImp.head, 30);
         linkedListImp.printList();
     }
 }
