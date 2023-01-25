@@ -13,21 +13,25 @@ public class LinkedListImp {
         }
     }
 
+    public void addingNode(Integer data) {
+
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
     public void printList() {
         while (head != null) {
-            System.out.print(head.data + " ");
+            System.out.print(head.data + "->");
             head = head.next;
         }
     }
 
     public static void main(String[] args) {
         LinkedListImp linkedListImp = new LinkedListImp();
-        linkedListImp.head = new Node(56);
-        Node second = new Node(30);
-        Node third = new Node(70);
-
-        linkedListImp.head.next = second;
-        second.next = third;
+        linkedListImp.addingNode(70);
+        linkedListImp.addingNode(30);
+        linkedListImp.addingNode(56);
 
         linkedListImp.printList();
     }
